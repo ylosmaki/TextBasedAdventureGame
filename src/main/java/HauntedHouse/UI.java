@@ -1,3 +1,5 @@
+package HauntedHouse;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -6,12 +8,6 @@ public class UI {
     /*Greeting/back-story, other text and descriptions.
      */
     Scanner userInput = new Scanner(System.in);
-    InventoryStuff inventory = new InventoryStuff();
-    List<String> inventoryList = inventory.getInventory();
-
-/*    inventory.addToInventory("Detergent");
-    inventory.addToInventory("Apple");*/
-
 
     public void startGame() {
         System.out.println("Good morning! Late night? How's your head? It seems like you had fun at yesterday's Academy after-work drinks....\n" +
@@ -36,41 +32,33 @@ public class UI {
                     cont = false;
                     System.out.println("Awww...too scary for you? Ok, bye for now.");
                     break;
-
                 case "help":
                     printCommandList();
                     break;
-
                 case "go":
                     System.out.println("Where do you want to go?");
                     String whereTo = userInput.nextLine();
                     switch (whereTo) {
                         case "kitchen":
-                            Kitchen kitchen = new Kitchen(inventoryList);
+                            Kitchen kitchen = new Kitchen();
                             kitchen.introduceRoom();
                             //method here
                             break;
-
                         case "storage room":
                             //method here
                             break;
-
                         case "basement":
                             //method here
                             break;
-
                         case "laundry room":
                             //method here
                             break;
-
                         case "corridor":
                             //method here
                             break;
-
                         case "exit":
                             //method here, numberOfKeys == 4 -> door opens
                             break;
-
                         default:
                             System.out.println("That's not a command. Are you still drunk? Please try again.");
                             break;
@@ -78,11 +66,11 @@ public class UI {
                     }
                     break;
                 case "inventory":
-                    System.out.println(inventory);
+                    InventoryStuff.printInventory();
                     break;
 
                 case "take":
-                    //method here
+                    System.out.println("There is nothing to take.");
                     break;
 
                 case "use":

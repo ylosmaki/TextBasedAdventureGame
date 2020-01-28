@@ -1,9 +1,9 @@
+package HauntedHouse;
+
 import java.util.List;
 
 public class Basement extends Room {
-    public Basement(List<String> list) {
-        super(list);
-    }
+
 
     @Override
     public void introduceRoom() {

@@ -1,4 +1,6 @@
-public class Zombie implements  Monster {
+package HauntedHouse;
+
+public class Ghost implements Monster {
     @Override
     public void introduceMonster() {
 

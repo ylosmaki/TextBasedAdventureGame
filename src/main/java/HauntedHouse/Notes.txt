@@ -1,5 +1,5 @@
-Kitchen: (zombie) key, apple, fridge, oven, trash can, roast chicken, knife
-Storage room: (vampire) key, suitcase, flashlight, baseball bat
+Kitchen: fridge(vampire), oven(roast chicken), trash can (apple), chopsticks
+Storage room: (zombie) suitcase, flashlight, baseball bat
 Laundry room: (mummy) key, detergent, brush, bleach,
 Basement: (ghost) key, hammer, chainsaw, proton bag, flower
 
