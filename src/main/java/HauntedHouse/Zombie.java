@@ -18,10 +18,6 @@ public class Zombie implements Monster {
 
     }
 
-    @Override
-    public void heroFailsToKill() {
-
-    }
 
     @Override
     public void monsterDies() {

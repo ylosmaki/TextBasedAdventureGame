@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Kitchen extends Room {
 
+    Scanner userInput = new Scanner(System.in);
 
     @Override
     public void introduceRoom() {
@@ -14,7 +15,6 @@ public class Kitchen extends Room {
     }
 
     public void takeThing() {
-        Scanner userInput = new Scanner(System.in);
         System.out.println("What do you want to take?");
         String whatToTake = userInput.nextLine().toLowerCase().trim();
         switch (whatToTake) {
@@ -33,7 +33,16 @@ public class Kitchen extends Room {
             default:
                 System.out.println("What are you doing? You can't take that.");
         }
-        
+    }
+
+    public void openThing() {
+        System.out.println("What do you want to open?");
+        String whatToOpen = userInput.nextLine().trim().toLowerCase();
+        switch (whatToOpen) {
+            case "fridge":
+                Vampire vamp = new Vampire();
+                vamp.introduceMonster();
+        }
 
     }
 }
