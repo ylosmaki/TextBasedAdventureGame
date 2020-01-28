@@ -1,7 +1,9 @@
 Kitchen: (zombie) key, apple, fridge, oven, trash can, roast chicken, knife
 Storage room: (vampire) key, suitcase, flashlight, baseball bat
 Laundry room: (mummy) key, detergent, brush, bleach,
-Basement: (ghost) key, hammer, chainsaw, proton bag, flower
+Basement: (ghost) key, hammer, chainsaw, proton bag, flower, telephone
 
 
 openExitDoor -method: keycount == 4 --> open exit
+
+ghost : die - use telephone - who you gonna call?
