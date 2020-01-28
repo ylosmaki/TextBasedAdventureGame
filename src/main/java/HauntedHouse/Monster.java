@@ -9,8 +9,6 @@ public interface Monster {
 
     public void makeFriendsWithHero();
 
-    public void heroFailsToKill();
-
     public void monsterDies();
 
 }
