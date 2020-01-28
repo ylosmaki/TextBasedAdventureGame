@@ -55,7 +55,6 @@ public abstract class Room {
                     String whatToTake = userInput.nextLine().toLowerCase().trim();
                     switch (whatToTake) {
                         case "apple":
-                            InventoryStuff.addToInventory("apple");
                             //method here
                             break;
                         case "use":
