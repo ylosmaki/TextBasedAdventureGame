@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class UI {
@@ -6,6 +7,11 @@ public class UI {
      */
     Scanner userInput = new Scanner(System.in);
     InventoryStuff inventory = new InventoryStuff();
+    List<String> inventoryList = inventory.getInventory();
+
+/*    inventory.addToInventory("Detergent");
+    inventory.addToInventory("Apple");*/
+
 
     public void startGame() {
         System.out.println("Good morning! Late night? How's your head? It seems like you had fun at yesterday's Academy after-work drinks....\n" +
@@ -40,6 +46,8 @@ public class UI {
                     String whereTo = userInput.nextLine();
                     switch (whereTo) {
                         case "kitchen":
+                            Kitchen kitchen = new Kitchen(inventoryList);
+                            kitchen.introduceRoom();
                             //method here
                             break;
 
@@ -60,7 +68,7 @@ public class UI {
                             break;
 
                         case "exit":
-                            //method here
+                            //method here, numberOfKeys == 4 -> door opens
                             break;
 
                         default:
@@ -68,12 +76,26 @@ public class UI {
                             break;
 
                     }
+                    break;
                 case "inventory":
                     System.out.println(inventory);
                     break;
 
                 case "take":
+                    //method here
+                    break;
 
+                case "use":
+                    //method here
+                    break;
+
+                case "look":
+                    //method here
+                    break;
+
+                case "open":
+                    //method here
+                    break;
 
                 default:
                     System.out.println("That's not a command. Are you still drunk? Please try again.");
@@ -84,7 +106,7 @@ public class UI {
 
     }
 
-        public void printCommandList () {
+        public static void printCommandList () {
             System.out.println("Available commands are:\n\nLook\nGo\nUse\nOpen\nTake\nInventory\nHelp (to see list again)\nQuit (to end game)");
             //whatNext();
         }
