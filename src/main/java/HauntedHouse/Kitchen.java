@@ -42,6 +42,17 @@ public class Kitchen extends Room {
             case "fridge":
                 Vampire vamp = new Vampire();
                 vamp.introduceMonster();
+                //what to do with vampire etc.
+                break;
+            case "oven":
+                System.out.println("Peering into the oven, you find a delicious warm roast chicken.");
+                break;
+            case "trash can":
+                System.out.println("You have found a shiny red apple.");
+                break;
+            default:
+                System.out.println("Don't be silly. You can't open that.");
+                break;
         }
 
     }

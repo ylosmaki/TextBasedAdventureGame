@@ -57,7 +57,11 @@ public class UI {
                             //method here
                             break;
                         case "exit":
-                            //method here, numberOfKeys == 4 -> door opens
+                            if (InventoryStuff.getNumberOfKeys() == 4) {
+                                System.out.println("Well done! You're free! See you next Saturday...?");
+                                System.exit(0);
+                            }
+                            else { System.out.println("You don't have enough keys to open the door. You're trapped."); }
                             break;
                         default:
                             System.out.println("That's not a command. Are you still drunk? Please try again.");
@@ -70,19 +74,16 @@ public class UI {
                     break;
 
                 case "take":
-                    System.out.println("There is nothing to take.");
+                    System.out.println("There's nothing to take.");
                     break;
 
                 case "use":
-                    //method here
+                    System.out.println("You don't need to use anything here.");
                     break;
 
-                case "look":
-                    //method here
-                    break;
 
                 case "open":
-                    //method here
+                    System.out.println("There's nothing to open here. Go to the exit when you have enough keys.");
                     break;
 
                 default:
@@ -95,7 +96,7 @@ public class UI {
     }
 
         public static void printCommandList () {
-            System.out.println("Available commands are:\n\nLook\nGo\nUse\nOpen\nTake\nInventory\nHelp (to see list again)\nQuit (to end game)");
+            System.out.println("Available commands are:\n\nGo\nUse\nOpen\nTake\nInventory\nHelp (to see list again)\nQuit (to end game)");
             //whatNext();
         }
     }

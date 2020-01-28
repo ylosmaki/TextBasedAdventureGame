@@ -5,7 +5,8 @@ import HauntedHouse.Monster;
 public class Vampire implements Monster {
     @Override
     public void introduceMonster() {
-        System.out.println("Oh no. You have found a vampire. I sure hope he isn't hungry.");
+        System.out.println("Oh no. You have found a vampire. The smell of death is overwhelming.\n" +
+                "I sure hope he isn't hungry.");
     }
 
     @Override
@@ -14,7 +15,6 @@ public class Vampire implements Monster {
                 "You lie bloodless on the floor.\n" +
                 "Game over...for now.");
                 System.exit(0);
-        //end game method.
     }
 
     @Override
