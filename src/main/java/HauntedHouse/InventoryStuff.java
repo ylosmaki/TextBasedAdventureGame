@@ -29,5 +29,9 @@ public class InventoryStuff {
         System.out.println("You have: " + String.join(", ",inventory) + " and " + numberOfKeys + " keys.");
     }
 
+    public static boolean hasOnInventory(String isIncluded) {
+        return inventory.contains(isIncluded);
+    }
+
     public String toString() { return "You have: " + String.join(", ",inventory) + " and " + numberOfKeys + " keys."; }
 }
