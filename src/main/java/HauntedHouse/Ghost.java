@@ -4,7 +4,8 @@ public class Ghost implements Monster {
     @Override
     public void introduceMonster() {
         System.out.println("Opening the trunk has revealed an angry-looking ghost holding a key.\n" +
-                "He rattles his chains at you menacingly.");
+                "He rattles his chains at you menacingly.\n" +
+                "What are you going to do?");
     }
 
     @Override

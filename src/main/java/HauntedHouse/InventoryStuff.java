@@ -18,7 +18,12 @@ public class InventoryStuff {
     }
 
     public static void addToInventory(String thing) {
-        inventory.add(thing);
+        if (inventory.contains(thing)) {
+            System.out.println("You already have that in your inventory. Don't be greedy.");
+        } else  {
+            inventory.add(thing);
+            System.out.println(thing + " has been added to your inventory.");
+        }
     }
 
     public static void removeFromInventory(String thing) {
@@ -26,12 +31,10 @@ public class InventoryStuff {
     }
 
     public static void printInventory() {
+        if (inventory.isEmpty()) {
+            System.out.println("You have nothing in your inventory and " + numberOfKeys + " keys.");
+        }
         System.out.println("You have: " + String.join(", ",inventory) + " and " + numberOfKeys + " keys.");
     }
 
-    public static boolean isInInventory(String isIncluded) {
-        return inventory.contains(isIncluded);
-    }
-
-    public String toString() { return "You have: " + String.join(", ",inventory) + " and " + numberOfKeys + " keys."; }
 }

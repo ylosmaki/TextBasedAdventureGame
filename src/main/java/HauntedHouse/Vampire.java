@@ -6,7 +6,8 @@ public class Vampire implements Monster {
     @Override
     public void introduceMonster() {
         System.out.println("Oh no. You have found a vampire. The smell of death is overwhelming.\n" +
-                "I sure hope he isn't hungry.");
+                "I sure hope he isn't hungry.\n" +
+                "What are you going to do?");
     }
 
     @Override
