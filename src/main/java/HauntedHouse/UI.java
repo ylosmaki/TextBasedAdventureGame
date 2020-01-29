@@ -65,7 +65,7 @@ public class UI {
                                 System.out.println("What do you want to do?");
                                 System.out.print("storage room> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
-                                //roomLoop....
+                                storageRoomLoop(toDo);
                             }
                             break;
 
@@ -77,7 +77,7 @@ public class UI {
                                 System.out.println("What do you want to do?");
                                 System.out.print("basement> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
-                                //roomLoop....
+                                basementLoop(toDo);
                             }
                             break;
 
@@ -89,7 +89,7 @@ public class UI {
                                 System.out.println("What do you want to do?");
                                 System.out.print("laundry room> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
-                                //roomLoop....
+                                laundryRoomLoop(toDo);
                             }
                             break;
                             //method here
@@ -299,7 +299,476 @@ public class UI {
                 break;
         }
     }
-///here end the method for actions in the rooms
+
+    public void storageRoomLoop(String toDo) {
+        Monster zombie = new Zombie();
+
+        switch (toDo) {
+            case "quit":
+                System.out.println("Awww...too scary for you? Ok, bye for now.");
+                System.exit(0);
+                break;
+            case "help":
+                printCommandList();
+                break;
+            case "go":
+                System.out.println("There is nowhere you can go right now. Sad.");
+                break;
+            case "inventory":
+                InventoryStuff.printInventory();
+                break;
+            case "open boxes":
+                zombie.introduceMonster();
+                fightTheZombie();
+                break;
+            case "open suitcase":
+                System.out.println("You throw open the dusty old suitcase to reveal a book of dad jokes and\n" +
+                        "a book of sudoku puzzles. You scoop them up.");
+                InventoryStuff.addToInventory("sudoku book");
+                InventoryStuff.addToInventory("dad jokes book");
+                break;
+
+            case "take":
+                System.out.println("Take what?");
+                System.out.print(">");
+                String takeWhat = userInput.nextLine().toLowerCase().trim();
+                switch (takeWhat) {
+                    case "quit":
+                        System.out.println("Awww...too scary for you? Ok, bye for now.");
+                        System.exit(0);
+                        break;
+                    case "help":
+                        printCommandList();
+                        break;
+                    case "inventory":
+                        InventoryStuff.printInventory();
+                        break;
+                    case "flashlight":
+                        InventoryStuff.addToInventory("flashlight");
+                        break;
+                    case "baseball bat":
+                        InventoryStuff.addToInventory("baseball bat");
+                        break;
+                    default:
+                        System.out.println("Nope, try again.");
+                        break;
+                }
+
+                break;
+            case "take baseball bat":
+                InventoryStuff.addToInventory("baseball bat");
+                break;
+            case "take flashlight":
+                InventoryStuff.addToInventory("flashlight");
+                break;
+
+            case "open":
+                System.out.println("What do you want to open?");
+                System.out.print(">");
+                String whatToOpen = userInput.nextLine().toLowerCase().trim();
+                switch (whatToOpen) {
+                    case "quit":
+                        System.out.println("Awww...too scary for you? Ok, bye for now.");
+                        System.exit(0);
+                        break;
+                    case "help":
+                        printCommandList();
+                        break;
+                    case "inventory":
+                        InventoryStuff.printInventory();
+                        break;
+                    case "boxes":
+                        zombie.introduceMonster();
+                        fightTheZombie();
+                        break;
+                    case "suitcase":
+                        System.out.println("You throw open the dusty old suitcase to reveal a book of dad jokes and\n" +
+                                "a book of sudoku puzzles. You scoop them up.");
+                        InventoryStuff.addToInventory("sudoku book");
+                        InventoryStuff.addToInventory("dad jokes book");
+                        break;
+                    default:
+                        System.out.println("What are you doing? You can't do that. Try something else.");
+                        break;
+                }
+                break;
+            default:
+                System.out.println("That's not a command. Are you still drunk? Please try again.");
+                break;
+        }
+
+    }
+
+    public void fightTheZombie() {
+        Monster zombie = new Zombie();
+        Scanner userInput = new Scanner(System.in);
+        System.out.print(">");
+        String whatToUse = userInput.nextLine();
+
+        switch (whatToUse) {
+            case "quit":
+                System.out.println("Awww...too scary for you? Ok, bye for now.");
+                System.exit(0);
+                break;
+            case "help":
+                printCommandList();
+                break;
+            case "inventory":
+                InventoryStuff.printInventory();
+                break;
+            case "use sudoku book":
+                zombie.makeFriendsWithHero();
+                InventoryStuff.removeFromInventory("sudoku book");
+                whatNext();
+                break;
+            case "use dad jokes book":
+                zombie.monsterDies();
+                InventoryStuff.removeFromInventory("dad jokes book");
+                whatNext();
+                break;
+            case "use baseball bat":
+                zombie.killHero();
+                System.exit(0);
+                break;
+            case "use flashlight":
+                zombie.killHero();
+                System.exit(0);
+                break;
+            case "use":
+                System.out.println("What do you want to use?");
+                System.out.print(">");
+                String useWhat = userInput.nextLine();
+                switch (useWhat) {
+                    case "sudoku book":
+                        zombie.makeFriendsWithHero();
+                        InventoryStuff.removeFromInventory("sudoku book");
+                        whatNext();
+                        break;
+                    case "dad jokes book":
+                        zombie.monsterDies();
+                        InventoryStuff.removeFromInventory("dad jokes book");
+                        whatNext();
+                        break;
+                    case "baseball bat":
+                        zombie.killHero();
+                        System.exit(0);
+                        break;
+                    case "flashlight":
+                        zombie.killHero();
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("I'm afraid that's not possible. Try something you can actually do.");
+                        break;
+                }
+            default:
+                System.out.println("Oh no, not that. Try something that makes more sense.");
+                break;
+        }
+    }
+
+    public void laundryRoomLoop(String toDo) {
+        Monster mummy = new Mummy();
+        switch (toDo) {
+            case "quit":
+                System.out.println("Awww...too scary for you? Ok, bye for now.");
+                System.exit(0);
+                break;
+            case "help":
+                printCommandList();
+                break;
+            case "go":
+                System.out.println("There is nowhere you can go right now. Sad.");
+                break;
+            case "inventory":
+                InventoryStuff.printInventory();
+                break;
+            case "open drier":
+                mummy.introduceMonster();
+                fightTheMummy();
+                break;
+            case "open cabinet":
+                System.out.println("You open the cabinet and see a brush and a bleach sitting on the shelf.\n" +
+                        "You pick them up.");
+                InventoryStuff.addToInventory("bleach");
+                InventoryStuff.addToInventory("brush");
+                break;
+            case "take":
+                System.out.println("Take what?");
+                System.out.print(">");
+                String takeWhat = userInput.nextLine().toLowerCase().trim();
+                switch (takeWhat) {
+                    case "quit":
+                        System.out.println("Awww...too scary for you? Ok, bye for now.");
+                        System.exit(0);
+                        break;
+                    case "help":
+                        printCommandList();
+                        break;
+                    case "inventory":
+                        InventoryStuff.printInventory();
+                        break;
+                    case "scissors":
+                        InventoryStuff.addToInventory("scissors");
+                        break;
+                    default:
+                        System.out.println("Nope, try again.");
+                        break;
+                }
+                break;
+            case "take scissors":
+                InventoryStuff.addToInventory("scissors");
+                break;
+            case "open":
+                System.out.println("What do you want to open?");
+                System.out.print(">");
+                String whatToOpen = userInput.nextLine().toLowerCase().trim();
+                switch (whatToOpen) {
+                    case "quit":
+                        System.out.println("Awww...too scary for you? Ok, bye for now.");
+                        System.exit(0);
+                        break;
+                    case "help":
+                        printCommandList();
+                        break;
+                    case "inventory":
+                        InventoryStuff.printInventory();
+                        break;
+                    case "drier":
+                        mummy.introduceMonster();
+                        fightTheMummy();
+                        break;
+                    case "cabinet":
+                        System.out.println("You open the cabinet and see a brush and a bleach sitting on the shelf.\n" +
+                                "You pick them up.");
+                        InventoryStuff.addToInventory("bleach");
+                        InventoryStuff.addToInventory("brush");
+                        break;
+                    default:
+                        System.out.println("What are you doing? You can't do that. Try something else.");
+                        break;
+                }
+                break;
+            default:
+                System.out.println("That's not a command. Are you still drunk? Please try again.");
+                break;
+        }
+    }
+    public void fightTheMummy() {
+        Monster mummy = new Mummy();
+        Scanner userInput = new Scanner(System.in);
+        System.out.print(">");
+        String whatToUse = userInput.nextLine();
+        switch (whatToUse) {
+            case "quit":
+                System.out.println("Awww...too scary for you? Ok, bye for now.");
+                System.exit(0);
+                break;
+            case "help":
+                printCommandList();
+                break;
+            case "inventory":
+                InventoryStuff.printInventory();
+                break;
+            case "use bleach":
+                mummy.makeFriendsWithHero();
+                InventoryStuff.removeFromInventory("bleach");
+                whatNext();
+                break;
+            case "use scissors":
+                mummy.monsterDies();
+                InventoryStuff.removeFromInventory("scissors");
+                whatNext();
+                break;
+            case "use brush":
+                mummy.killHero();
+                System.exit(0);
+                break;
+            case "use":
+                System.out.println("What do you want to use?");
+                System.out.print(">");
+                String useWhat = userInput.nextLine();
+                switch (useWhat) {
+                    case "bleach":
+                        mummy.makeFriendsWithHero();
+                        InventoryStuff.removeFromInventory("bleach");
+                        whatNext();
+                        break;
+                    case "scissors":
+                        mummy.monsterDies();
+                        InventoryStuff.removeFromInventory("scissors");
+                        whatNext();
+                        break;
+                    case "brush":
+                        mummy.killHero();
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("I'm afraid that's not possible. Try something you can actually do.");
+                        break;
+                }
+            default:
+                System.out.println("Oh no, not that. Try something that makes more sense.");
+                break;
+        }
+    }
+
+    public void basementLoop(String toDo) {
+        Monster ghost = new Ghost();
+        switch (toDo) {
+            case "quit":
+                System.out.println("Awww...too scary for you? Ok, bye for now.");
+                System.exit(0);
+                break;
+            case "help":
+                printCommandList();
+                break;
+            case "go":
+                System.out.println("There is nowhere you can go right now. Sad.");
+                break;
+            case "inventory":
+                InventoryStuff.printInventory();
+                break;
+            case "open trunk":
+                ghost.introduceMonster();
+                fightTheGhost();
+                break;
+            case "take":
+                System.out.println("Take what?");
+                System.out.print(">");
+                String takeWhat = userInput.nextLine().toLowerCase().trim();
+                switch (takeWhat) {
+                    case "quit":
+                        System.out.println("Awww...too scary for you? Ok, bye for now.");
+                        System.exit(0);
+                        break;
+                    case "help":
+                        printCommandList();
+                        break;
+                    case "inventory":
+                        InventoryStuff.printInventory();
+                        break;
+                    case "hammer":
+                        InventoryStuff.addToInventory("hammer");
+                        break;
+                    case "chainsaw":
+                        InventoryStuff.addToInventory("chainsaw");
+                        break;
+                    case "oil can":
+                        InventoryStuff.addToInventory("oil can");
+                        break;
+                    case "telephone":
+                        InventoryStuff.addToInventory("telephone");
+                        break;
+                    default:
+                        System.out.println("Nope, try again.");
+                        break;
+                }
+                break;
+            case "take hammer":
+                InventoryStuff.addToInventory("hammer");
+                break;
+            case "take chainsaw":
+                InventoryStuff.addToInventory("chainsaw");
+                break;
+            case "take oil can":
+                InventoryStuff.addToInventory("oil can");
+                break;
+            case "take telephone":
+                InventoryStuff.addToInventory("telephone");
+                break;
+            case "open":
+                System.out.println("What do you want to open?");
+                System.out.print(">");
+                String whatToOpen = userInput.nextLine().toLowerCase().trim();
+                switch (whatToOpen) {
+                    case "quit":
+                        System.out.println("Awww...too scary for you? Ok, bye for now.");
+                        System.exit(0);
+                        break;
+                    case "help":
+                        printCommandList();
+                        break;
+                    case "inventory":
+                        InventoryStuff.printInventory();
+                        break;
+                    case "trunk":
+                        ghost.introduceMonster();
+                        fightTheGhost();
+                        break;
+                    default:
+                        System.out.println("What are you doing? You can't do that. Try something else.");
+                        break;
+                }
+                break;
+            default:
+                System.out.println("That's not a command. Are you still drunk? Please try again.");
+                break;
+        }
+    }
+
+    public void fightTheGhost() {
+        Monster ghost = new Ghost();
+        Scanner userInput = new Scanner(System.in);
+        System.out.print(">");
+        String whatToUse = userInput.nextLine();
+        switch (whatToUse) {
+            case "quit":
+                System.out.println("Awww...too scary for you? Ok, bye for now.");
+                System.exit(0);
+                break;
+            case "help":
+                printCommandList();
+                break;
+            case "inventory":
+                InventoryStuff.printInventory();
+                break;
+            case "use oil can":
+                ghost.makeFriendsWithHero();
+                InventoryStuff.removeFromInventory("oil can");
+                whatNext();
+                break;
+            case "use telephone":
+                ghost.monsterDies();
+                InventoryStuff.removeFromInventory("telephone");
+                whatNext();
+                break;
+            case "use chainsaw":
+            case "use hammer":
+                ghost.killHero();
+                System.exit(0);
+                break;
+            case "use":
+                System.out.println("What do you want to use?");
+                System.out.print(">");
+                String useWhat = userInput.nextLine();
+                switch (useWhat) {
+                    case "oil can":
+                        ghost.makeFriendsWithHero();
+                        InventoryStuff.removeFromInventory("oil can");
+                        whatNext();
+                        break;
+                    case "telephone":
+                        ghost.monsterDies();
+                        InventoryStuff.removeFromInventory("telephone");
+                        whatNext();
+                        break;
+                    case "hammer":
+                    case "chainsaw":
+                        ghost.killHero();
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("I'm afraid that's not possible. Try something you can actually do.");
+                        break;
+                }
+            default:
+                System.out.println("Oh no, not that. Try something that makes more sense.");
+                break;
+        }
+    }
+
+
         
     public static void printCommandList(){
         System.out.println("******************************************");
