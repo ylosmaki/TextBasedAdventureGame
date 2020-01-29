@@ -8,9 +8,4 @@ public abstract class Room {
      */
     abstract void introduceRoom();
 
-    abstract List<String> getFurnitureYouCanOpen();
-
-    abstract List<String> getStuffYouCanTake();
-
-    abstract Monster getMonster();
 }

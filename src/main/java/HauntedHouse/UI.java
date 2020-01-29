@@ -24,20 +24,21 @@ public class UI {
         boolean cont = true;
         while(cont) {
             System.out.println("\nWhat do you want to do next?");
-            System.out.print("corridor > ");
+            System.out.print("corridor> ");
             String action = userInput.nextLine().trim().toLowerCase();
 
             switch (action) {
                 case "quit":
-                    cont = false;
                     System.out.println("Awww...too scary for you? Ok, bye for now.");
+                    System.exit(0);
                     break;
                 case "help":
                     printCommandList();
                     break;
                 case "go":
                     System.out.println("Where do you want to go?");
-                    System.out.println("Rooms available are: kitchen or exit door. That's it. Deal with it.");
+                    System.out.println("Available rooms: kitchen, basement, laundry room, storage room, exit.");
+                    System.out.print("corridor> ");
                     String whereTo = userInput.nextLine().trim().toLowerCase();
                     switch (whereTo) {
                         case "kitchen":
@@ -47,23 +48,52 @@ public class UI {
 //this section works as it is ->
                             while (inTheKitchen) {
                                 System.out.println("What do you want to do?");
-                                System.out.print("kitchen > ");
+                                System.out.print("kitchen> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
 // and here goes while loop in the kitchen, maybe/hope to make it a method to use in all of the rooms?!?!
-                                roomLoop(toDo, kitchen);
+                                kitchenLoop(toDo);
 
 //and here ends the while loop in the kitchen*/
                             }
                             break;
+
                         case "storage room":
-                            //method here
+                            Room storageRoom = new StorageRoom();
+                            storageRoom.introduceRoom();
+                            boolean inTheStorageRoom = true;
+                            while (inTheStorageRoom) {
+                                System.out.println("What do you want to do?");
+                                System.out.print("storage room> ");
+                                String toDo = userInput.nextLine().trim().toLowerCase();
+                                //roomLoop....
+                            }
                             break;
+
                         case "basement":
-                            //method here
+                            Room basement = new Basement();
+                            basement.introduceRoom();
+                            boolean inTheBasement = true;
+                            while (inTheBasement) {
+                                System.out.println("What do you want to do?");
+                                System.out.print("basement> ");
+                                String toDo = userInput.nextLine().trim().toLowerCase();
+                                //roomLoop....
+                            }
                             break;
+
                         case "laundry room":
-                            //method here
+                            Room laundryRoom = new LaundryRoom();
+                            laundryRoom.introduceRoom();
+                            boolean inTheLaundryRoom = true;
+                            while (inTheLaundryRoom) {
+                                System.out.println("What do you want to do?");
+                                System.out.print("laundry room> ");
+                                String toDo = userInput.nextLine().trim().toLowerCase();
+                                //roomLoop....
+                            }
                             break;
+                            //method here
+
                         case "corridor":
                             //method here
                             break;
@@ -75,8 +105,9 @@ public class UI {
                                 System.out.println("You don't have enough keys to open the door. You're trapped.");
                             }
                             break;
+
                         default:
-                            System.out.println("That's not a command. Are you still drunk? Please try again.");
+                            System.out.println("You can't go there.");
                             break;
 
                     }
@@ -95,7 +126,7 @@ public class UI {
 
 
                 case "open":
-                    System.out.println("There's nothing to open here. Go to the exit when you have enough keys.");
+                    System.out.println("There's nothing to open here.");
                     break;
 
                 default:
@@ -107,7 +138,8 @@ public class UI {
     }
 
 //a method used for handling the actions inside the rooms. Uses rooms own furniture and stuff -lists
-    public void roomLoop(String toDo, Room room) {
+    public void kitchenLoop(String toDo) {
+        Monster vamp = new Vampire();
 
             switch (toDo) {
                 case "quit":
@@ -123,78 +155,81 @@ public class UI {
                 case "inventory":
                     InventoryStuff.printInventory();
                     break;
-                case "take":
-                    System.out.println("What do you want to take? Please name the object.");
-                    String whatToTake = userInput.nextLine().toLowerCase().trim();                    
-                    if (room.getStuffYouCanTake().contains(whatToTake)) {
-                        if (!InventoryStuff.isInInventory(whatToTake)) {
-                            InventoryStuff.addToInventory(whatToTake);
-                            System.out.println("It has been added to your inventory.");
-                        } else {
-                            System.out.println("It is already on the list. Don't try your luck my dear.");
-                        }
-                    } else {
-                        System.out.println("That is not yours to take.");
-                    }
+                case "open fridge":
+                    vamp.introduceMonster();
+                    fightTheVampire();
                     break;
+                case "open trash can":
+                    System.out.println("You rifle through the trash can.\n" +
+                            "Underneath everything you find a shiny red apple. You pick it up.");
+                    InventoryStuff.addToInventory("apple");
+                    break;
+                case "open oven":
+                    System.out.println("Peering into the oven, you find a delicious-looking warm roast chicken. Hangover food! Yay!\n" +
+                            "You take it out of the oven.");
+                    InventoryStuff.addToInventory("roast chicken");
+                    break;
+
+                case "take":
+                    System.out.println("Take what?");
+                    System.out.print(">");
+                    String takeWhat = userInput.nextLine().toLowerCase().trim();
+                    switch (takeWhat) {
+                        case "quit":
+                            System.out.println("Awww...too scary for you? Ok, bye for now.");
+                            System.exit(0);
+                            break;
+                        case "help":
+                            printCommandList();
+                            break;
+                        case "inventory":
+                            InventoryStuff.printInventory();
+                            break;
+                        case "chopsticks":
+                            InventoryStuff.addToInventory("chopsticks");
+                            break;
+                        default:
+                            System.out.println("Nope, try again.");
+                            break;
+                    }
                 
-                    
+                    break;
+                case "take chopsticks":
+                    InventoryStuff.addToInventory("chopsticks");
+                    break;
                 case "open":
-                    System.out.println("Things you can open here:");
-                    System.out.println(room.getFurnitureYouCanOpen());
                     System.out.println("What do you want to open?");
+                    System.out.print(">");
                     String whatToOpen = userInput.nextLine().toLowerCase().trim();
-                    if(room.getFurnitureYouCanOpen().contains(whatToOpen)) {
-                        if("trash can".equals(whatToOpen)) {
-                            System.out.println("You have found a shiny red apple.");
+                    switch (whatToOpen) {
+                        case "quit":
+                            System.out.println("Awww...too scary for you? Ok, bye for now.");
+                            System.exit(0);
+                            break;
+                        case "help":
+                            printCommandList();
+                            break;
+                        case "inventory":
+                            InventoryStuff.printInventory();
+                            break;
+                        case "fridge":
+                            vamp.introduceMonster();
+                            fightTheVampire();
+                            break;
+                        case "trash can":
+                            System.out.println("You rifle through the trash can. \n" +
+                                    "Underneath everything you find a shiny red apple. You pick it up.");
                             InventoryStuff.addToInventory("apple");
-                            System.out.println("The apple has been added to your inventory.");
-                        } else {
-                            room.getMonster().introduceMonster();
-                            boolean inTheFridge = true;
-                            while (inTheFridge) {
-                                System.out.println("Better think quick. What to do?");
-                                String what = userInput.nextLine().trim().toLowerCase();
-                                switch (what) {
-                                    case "use": //uses inventorylist as a guide
-                                        System.out.println("Want to use some of these items:");
-                                        InventoryStuff.printInventory();
-                                        System.out.println("What do you want to use?");
-                                        String whatToUse = userInput.nextLine().trim().toLowerCase();
+                            break;
+                        case "oven":
+                            System.out.println("Peering into the oven, you find a delicious-looking warm roast chicken. Hangover food! Yay!\n" +
+                                    "You take it out of the oven.");
+                            InventoryStuff.addToInventory("roast chicken");
+                            break;
 
-                                        if(InventoryStuff.isInInventory(whatToUse)) {
-                                            switch(whatToUse) {
-                                                case "apple":
-                                                    room.getMonster().makeFriendsWithHero();
-                                                    inTheFridge = false;
-//                                                    inTheKitchen = false;
-
-                                                    System.out.println("You are safely back in the corridor.");
-                                                    whatNext();
-                                                break;
-                                                case "chopsticks":
-                                                    room.getMonster().monsterDies();
-                                                    inTheFridge = false;
-//                                                    inTheKitchen = false;
-                                                    System.out.println("You are safely back in the corridor.");
-                                                    whatNext();
-                                                    break;
-                                                default:
-                                                    System.out.println("You can't use that.");
-                                            }
-                                        } else {
-                                            System.out.println("There is no such thing to use.");
-                                        }
-                                        break;
-                                    default:
-                                        room.getMonster().killHero();
-                                        break;
-                                }
-                            }
-
-                        }
-                    } else {
-                        System.out.println("You can't open that.");
+                        default:
+                            System.out.println("What are you doing? You can't do that. Try something else.");
+                            break;
                     }
                     break;
                 default:
@@ -204,9 +239,69 @@ public class UI {
 
 
     }
+
+    public void fightTheVampire() {
+        Monster vamp = new Vampire();
+        Scanner userInput = new Scanner(System.in);
+        System.out.print(">");
+        String whatToUse = userInput.nextLine();
+
+        switch (whatToUse) {
+            case "quit":
+                System.out.println("Awww...too scary for you? Ok, bye for now.");
+                System.exit(0);
+                break;
+            case "help":
+                printCommandList();
+                break;
+            case "inventory":
+                InventoryStuff.printInventory();
+                break;
+            case "use apple":
+                vamp.makeFriendsWithHero();
+                InventoryStuff.removeFromInventory("apple");
+                whatNext();
+                break;
+            case "use chopsticks":
+                vamp.monsterDies();
+                InventoryStuff.removeFromInventory("chopsticks");
+                whatNext();
+                break;
+            case "use roast chicken":
+                vamp.killHero();
+                System.exit(0);
+                break;
+            case "use":
+                System.out.println("What do you want to use?");
+                System.out.print(">");
+                String useWhat = userInput.nextLine();
+                switch (useWhat) {
+                    case "apple":
+                        vamp.makeFriendsWithHero();
+                        InventoryStuff.removeFromInventory("apple");
+                        whatNext();
+                        break;
+                    case "chopsticks":
+                        vamp.monsterDies();
+                        InventoryStuff.removeFromInventory("chopsticks");
+                        whatNext();
+                        break;
+                    case "roast chicken":
+                        vamp.killHero();
+                        System.exit(0);
+                        break;
+                    default:
+                        System.out.println("I'm afraid that's not possible. Try something you can actually do.");
+                        break;
+                }
+            default:
+                System.out.println("Oh no, not that. Try something that makes more sense.");
+                break;
+        }
+    }
 ///here end the method for actions in the rooms
         
-    public static void printCommandList () {
+    public static void printCommandList(){
         System.out.println("******************************************");
         System.out.println("AVAILABLE COMMANDS ARE:\nGo\nUse\nOpen\nTake\nInventory\nHelp (to see list again)\nQuit (to end game)");
         System.out.println("******************************************");

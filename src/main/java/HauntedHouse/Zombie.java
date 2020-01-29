@@ -7,7 +7,9 @@ import java.net.Inet4Address;
 public class Zombie implements Monster {
     @Override
     public void introduceMonster() {
-
+        System.out.println("You rummage through the pile of boxes but unfortunately all you find is a zombie.\n" +
+                "Even more unfortunate, it looks like he would like to eat your brains.\n" +
+                "What are you going to do?");
     }
 
     @Override
