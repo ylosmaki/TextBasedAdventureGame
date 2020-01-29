@@ -27,8 +27,8 @@ public class Ghost implements Monster {
 
     @Override
     public void monsterDies() {
-        System.out.println("That was quick thinking. The Ghostbusters perform a tele-exorcism and the ghost is sucked\n" +
-                "into the phone. The key drops to the floor with a clang and you scoop it up gratefully.");
+        System.out.println("Who you gonna call? Ghostbusters, of course! That was quick thinking. They perform a tele-exorcism and\n" +
+                "the ghost is sucked into the phone. The key drops to the floor with a clang and you scoop it up gratefully.");
         InventoryStuff.addKey();
     }
 }

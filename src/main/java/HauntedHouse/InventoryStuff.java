@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryStuff {
-    /* List maintenance. Things happen here when the hero performs actions like take, use etc.
+    /* List maintenance. Changes happen to the inventory through these methods when the player performs actions like take, use etc.
      */
     private static List<String> inventory = new ArrayList<>();
     private static int numberOfKeys = 0;
@@ -22,6 +22,7 @@ public class InventoryStuff {
             System.out.println("You already have that in your inventory. Don't be greedy.");
         } else  {
             inventory.add(thing);
+            System.out.println("");
             System.out.println(thing + " has been added to your inventory.");
         }
     }
