@@ -1,7 +1,5 @@
 package HauntedHouse;
 
-import HauntedHouse.Monster;
-
 import java.util.List;
 
 public abstract class Room {
