@@ -1,8 +1,10 @@
 package HauntedHouse;
 
+import Monsters.Monster;
+import Monsters.Vampire;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class Kitchen extends Room {
 

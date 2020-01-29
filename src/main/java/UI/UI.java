@@ -1,6 +1,9 @@
-package HauntedHouse;
+package UI;
 
-import java.util.List;
+import HauntedHouse.*;
+import Inventory.InventoryStuff;
+import Monsters.*;
+
 import java.util.Scanner;
 
 public class UI {
@@ -295,7 +298,8 @@ public class UI {
                         break;
                 }
             default:
-                System.out.println("Oh no, not that. Try something that makes more sense.");
+                vamp.killHero();
+                System.exit(0);
                 break;
         }
     }
@@ -462,7 +466,8 @@ public class UI {
                         break;
                 }
             default:
-                System.out.println("Oh no, not that. Try something that makes more sense.");
+                zombie.killHero();
+                System.exit(0);
                 break;
         }
     }
@@ -608,7 +613,8 @@ public class UI {
                         break;
                 }
             default:
-                System.out.println("Oh no, not that. Try something that makes more sense.");
+                mummy.killHero();
+                System.exit(0);
                 break;
         }
     }
@@ -763,7 +769,8 @@ public class UI {
                         break;
                 }
             default:
-                System.out.println("Oh no, not that. Try something that makes more sense.");
+                ghost.killHero();
+                System.exit(0);
                 break;
         }
     }

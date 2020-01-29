@@ -1,8 +1,6 @@
-package HauntedHouse;
+package Monsters;
 
-import HauntedHouse.Monster;
-
-import java.net.Inet4Address;
+import Inventory.InventoryStuff;
 
 public class Zombie implements Monster {
     @Override

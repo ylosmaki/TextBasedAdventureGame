@@ -1,4 +1,6 @@
-package HauntedHouse;
+package Monsters;
+
+import Inventory.InventoryStuff;
 
 public class Ghost implements Monster {
     @Override
