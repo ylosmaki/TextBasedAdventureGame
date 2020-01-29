@@ -13,7 +13,7 @@ public class Kitchen extends Room {
 
 
     public Kitchen() {
-        this.stuffYouCanTake = Arrays.asList("apple", "chopsticks", "roast chicken");
+        this.stuffYouCanTake = Arrays.asList("chopsticks");
         this.furnitureYouCanOpen = Arrays.asList("fridge", "trash can");
         this.monster = new Vampire();
     }
