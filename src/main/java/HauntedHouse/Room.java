@@ -3,6 +3,7 @@ package HauntedHouse;
 import HauntedHouse.UI;
 import HauntedHouse.InventoryStuff;
 
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -13,7 +14,14 @@ public abstract class Room {
 
     abstract void introduceRoom();
 
-    public void actionsInTheRoom() {
+    abstract List<String> getFurnitureYouCanOpen();
+
+    abstract List<String> getStuffYouCanTake();
+    
+    abstract Monster getMonster();
+
+
+/*    public void actionsInTheRoom() {
         Scanner userInput = new Scanner(System.in);
 
         boolean cont = true;
@@ -73,9 +81,6 @@ public abstract class Room {
                     }
                     default:
                     System.out.println("That's not a command. Are you still drunk? Please try again.");
-                    break;
+                    break;*/
             }
-        }
 
-    }
-}
