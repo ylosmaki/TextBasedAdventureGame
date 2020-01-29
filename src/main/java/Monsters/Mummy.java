@@ -1,6 +1,6 @@
-package HauntedHouse;
+package Monsters;
 
-import HauntedHouse.Monster;
+import Inventory.InventoryStuff;
 
 
 public class Mummy implements Monster {

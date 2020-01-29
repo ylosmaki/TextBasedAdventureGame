@@ -1,6 +1,6 @@
-package HauntedHouse;
+package UI;
 
-import HauntedHouse.UI;
+import UI.UI;
 
 public class Main {
 
