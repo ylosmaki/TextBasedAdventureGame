@@ -29,7 +29,7 @@ public class InventoryStuff {
         System.out.println("You have: " + String.join(", ",inventory) + " and " + numberOfKeys + " keys.");
     }
 
-    public static boolean hasOnInventory(String isIncluded) {
+    public static boolean isInInventory(String isIncluded) {
         return inventory.contains(isIncluded);
     }
 
