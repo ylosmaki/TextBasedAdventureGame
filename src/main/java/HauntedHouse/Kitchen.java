@@ -1,11 +1,22 @@
 package HauntedHouse;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class Kitchen extends Room {
 
-    Scanner userInput = new Scanner(System.in);
+//    Scanner userInput = new Scanner(System.in);
+    private List<String> stuffYouCanTake;
+    private List<String> furnitureYouCanOpen;
+    private Monster monster; //or just: private Vampire vampire;
+
+
+    public Kitchen() {
+        this.stuffYouCanTake = Arrays.asList("apple", "chopsticks", "roast chicken");
+        this.furnitureYouCanOpen = Arrays.asList("fridge", "trash can");
+        this.monster = new Vampire();
+    }
 
     @Override
     public void introduceRoom() {
@@ -14,7 +25,19 @@ public class Kitchen extends Room {
                 "You wonder where those keys could be...");
     }
 
-    public void takeThing() {
+    public List<String> getStuffYouCanTake() {
+        return stuffYouCanTake;
+    }
+
+    public List<String> getFurnitureYouCanOpen() {
+        return furnitureYouCanOpen;
+    }
+
+    public Monster getMonster() {
+        return monster;
+    }
+
+    /*   public void takeThing() {
         System.out.println("What do you want to take?");
         String whatToTake = userInput.nextLine().toLowerCase().trim();
         switch (whatToTake) {
@@ -33,9 +56,9 @@ public class Kitchen extends Room {
             default:
                 System.out.println("What are you doing? You can't take that.");
         }
-    }
+    }*/
 
-    public void openThing() {
+/*    public void openThing() {
         System.out.println("What do you want to open?");
         String whatToOpen = userInput.nextLine().trim().toLowerCase();
         switch (whatToOpen) {
@@ -55,5 +78,5 @@ public class Kitchen extends Room {
                 break;
         }
 
-    }
+    }*/
 }
