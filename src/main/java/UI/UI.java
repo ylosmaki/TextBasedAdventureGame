@@ -101,7 +101,16 @@ public class UI {
                                 System.out.println("You don't have enough keys to open the door. You're trapped.");
                             }
                             break;
-
+                        case "quit":
+                            System.out.println("Awww...too scary for you? Ok, bye for now.");
+                            System.exit(0);
+                            break;
+                        case "help":
+                            printCommandList();
+                            break;
+                        case "inventory":
+                            InventoryStuff.printInventory();
+                            break;
                         default:
                             System.out.println("You can't go there.");
                             break;
