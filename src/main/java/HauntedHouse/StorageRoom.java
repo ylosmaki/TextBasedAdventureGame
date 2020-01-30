@@ -1,8 +1,6 @@
 package HauntedHouse;
 
-import java.util.List;
-
-public class StorageRoom extends Room {
+public class StorageRoom implements Room {
 
     @Override
     public void introduceRoom() {

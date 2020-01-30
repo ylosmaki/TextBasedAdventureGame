@@ -12,14 +12,26 @@ Afternoon:
 Tuesday:
 
 Morning:
--
+- "daily scrum"
+- Ui and first room creation continued together
+- Some unexpected problems encountered
 
-
-
+Afternoon:
+- Ui and first room still not finished
+- Plan: everybody codes their own solutions for the first room at home
 
 Wednesday:
 
+Morning:
+- Started the morning comparing the two solutions and decided to continue developing one of those
+- presentation started
+- before lunch first room still not done
 
-
+Afternoon:
+- We all together decided to combine the two solutions created last night for a room to finally get it done
+- Room ready, ui done, presentation done
+- Expanding the game by duplicating the room.
+- Game about done.
 
 Thursday:
+- finalizing presentation

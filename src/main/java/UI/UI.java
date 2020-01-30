@@ -48,15 +48,11 @@ public class UI {
                             Room kitchen = new Kitchen();
                             kitchen.introduceRoom();
                             boolean inTheKitchen = true;
-//this section works as it is ->
                             while (inTheKitchen) {
                                 System.out.println("What do you want to do?");
                                 System.out.print("kitchen> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
-// and here goes while loop in the kitchen, maybe/hope to make it a method to use in all of the rooms?!?!
                                 kitchenLoop(toDo);
-
-//and here ends the while loop in the kitchen*/
                             }
                             break;
 
@@ -95,10 +91,7 @@ public class UI {
                                 laundryRoomLoop(toDo);
                             }
                             break;
-                            //method here
-
                         case "corridor":
-                            //method here
                             break;
                         case "exit":
                             if (InventoryStuff.getNumberOfKeys() == 4) {
@@ -140,7 +133,6 @@ public class UI {
 
     }
 
-//a method used for handling the actions inside the rooms. Uses rooms own furniture and stuff -lists
     public void kitchenLoop(String toDo) {
         Monster vamp = new Vampire();
 
@@ -239,8 +231,6 @@ public class UI {
                     System.out.println("That's not a command. Are you still drunk? Please try again.");
                     break;
             }
-
-
     }
 
     public void fightTheVampire() {
@@ -774,8 +764,6 @@ public class UI {
                 break;
         }
     }
-
-
         
     public static void printCommandList(){
         System.out.println("******************************************");
