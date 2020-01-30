@@ -1,24 +1,6 @@
 package HauntedHouse;
 
-import Monsters.Monster;
-import Monsters.Vampire;
-
-import java.util.Arrays;
-import java.util.List;
-
-public class Kitchen extends Room {
-
-//    Scanner userInput = new Scanner(System.in);
-    private List<String> stuffYouCanTake;
-    private List<String> furnitureYouCanOpen;
-    private Monster monster; //or just: private Vampire vampire;
-
-
-    public Kitchen() {
-        this.stuffYouCanTake = Arrays.asList("chopsticks");
-        this.furnitureYouCanOpen = Arrays.asList("fridge", "trash can", "oven");
-        this.monster = new Vampire();
-    }
+public class Kitchen implements Room {
 
     @Override
     public void introduceRoom() {
@@ -27,58 +9,4 @@ public class Kitchen extends Room {
                 "You wonder where those keys could be...\n");
     }
 
-    public List<String> getStuffYouCanTake() {
-        return stuffYouCanTake;
-    }
-
-    public List<String> getFurnitureYouCanOpen() {
-        return furnitureYouCanOpen;
-    }
-
-    public Monster getMonster() {
-        return monster;
-    }
-
-    /*   public void takeThing() {
-        System.out.println("What do you want to take?");
-        String whatToTake = userInput.nextLine().toLowerCase().trim();
-        switch (whatToTake) {
-            case "apple":
-                InventoryStuff.addToInventory("apple");
-                System.out.println("The apple has been added to your inventory.");
-                break;
-            case "roast chicken":
-                InventoryStuff.addToInventory("roast chicken");
-                System.out.println("The roast chicken has been added to your inventory.");
-                break;
-            case "chopsticks":
-                InventoryStuff.addToInventory("chopsticks");
-                System.out.println("The chopsticks have been added to your inventory.");
-                break;
-            default:
-                System.out.println("What are you doing? You can't take that.");
-        }
-    }*/
-
-/*    public void openThing() {
-        System.out.println("What do you want to open?");
-        String whatToOpen = userInput.nextLine().trim().toLowerCase();
-        switch (whatToOpen) {
-            case "fridge":
-                Vampire vamp = new Vampire();
-                vamp.introduceMonster();
-                //what to do with vampire etc.
-                break;
-            case "oven":
-                System.out.println("Peering into the oven, you find a delicious warm roast chicken.");
-                break;
-            case "trash can":
-                System.out.println("You have found a shiny red apple.");
-                break;
-            default:
-                System.out.println("Don't be silly. You can't open that.");
-                break;
-        }
-
-    }*/
 }
