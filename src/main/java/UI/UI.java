@@ -49,7 +49,7 @@ public class UI {
                             kitchen.introduceRoom();
                             boolean inTheKitchen = true;
                             while (inTheKitchen) {
-                                System.out.println("What do you want to do?");
+                                System.out.println("\nWhat do you want to do?");
                                 System.out.print("kitchen> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
                                 kitchenLoop(toDo);
@@ -61,7 +61,7 @@ public class UI {
                             storageRoom.introduceRoom();
                             boolean inTheStorageRoom = true;
                             while (inTheStorageRoom) {
-                                System.out.println("What do you want to do?");
+                                System.out.println("\nWhat do you want to do?");
                                 System.out.print("storage room> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
                                 storageRoomLoop(toDo);
@@ -73,7 +73,7 @@ public class UI {
                             basement.introduceRoom();
                             boolean inTheBasement = true;
                             while (inTheBasement) {
-                                System.out.println("What do you want to do?");
+                                System.out.println("\nWhat do you want to do?");
                                 System.out.print("basement> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
                                 basementLoop(toDo);
@@ -85,7 +85,7 @@ public class UI {
                             laundryRoom.introduceRoom();
                             boolean inTheLaundryRoom = true;
                             while (inTheLaundryRoom) {
-                                System.out.println("What do you want to do?");
+                                System.out.println("\nWhat do you want to do?");
                                 System.out.print("laundry room> ");
                                 String toDo = userInput.nextLine().trim().toLowerCase();
                                 laundryRoomLoop(toDo);

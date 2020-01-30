@@ -20,7 +20,7 @@ public class InventoryStuff {
     public static void addToInventory(String thing) {
         if (inventory.contains(thing)) {
             System.out.println("You already have that in your inventory. Don't be greedy.");
-        } else  {
+        } else {
             inventory.add(thing);
             System.out.println("");
             System.out.println(thing + " has been added to your inventory.");
@@ -34,8 +34,8 @@ public class InventoryStuff {
     public static void printInventory() {
         if (inventory.isEmpty()) {
             System.out.println("You have nothing in your inventory and " + numberOfKeys + " keys.");
+        } else {
+            System.out.println("You have: " + String.join(", ", inventory) + " and " + numberOfKeys + " keys.");
         }
-        System.out.println("You have: " + String.join(", ",inventory) + " and " + numberOfKeys + " keys.");
     }
-
 }
